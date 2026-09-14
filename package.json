@@ -1,6 +1,6 @@
 {
   "name": "farworlds",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "A new world on every new tab. Procedurally generated planets, stars and asteroids in your browser.",
   "author": "Alex Navarro <alex@jalapenolabs.io> (https://jalapenolabs.io)",
