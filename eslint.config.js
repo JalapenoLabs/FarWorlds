@@ -11,6 +11,13 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   reactHooks.configs.flat.recommended,
   {
+    files: ['scripts/**/*.mjs', 'eslint.config.js'],
+    languageOptions: {
+      ecmaVersion: 2022,
+      globals: { ...globals.node, WebSocket: 'readonly' },
+    },
+  },
+  {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2022,
