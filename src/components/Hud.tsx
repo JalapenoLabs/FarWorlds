@@ -69,7 +69,7 @@ export function Hud(props: Props) {
     </button>
   }
 
-  return <div className='fixed inset-y-0 right-0 flex w-[42%] max-lg:w-full items-center pl-[6%] max-lg:justify-center max-lg:pl-0 max-lg:items-end max-lg:pb-24'>
+  return <div className='fixed inset-y-0 right-0 flex w-[48%] max-lg:w-full items-center pl-[4%] max-lg:justify-center max-lg:pl-0 max-lg:items-end max-lg:pb-24'>
     {activePanel === 'info' && blueprint
       ? <WorldInfoPanel
         blueprint={blueprint}

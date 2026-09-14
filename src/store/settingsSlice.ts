@@ -26,7 +26,7 @@ export const initialSettings: SettingsState = {
   autoRotate: true,
   showClouds: true,
   showFps: false,
-  showSearch: false,
+  showSearch: true,
   showShortcuts: false,
 }
 
