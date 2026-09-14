@@ -4,11 +4,15 @@ import type { GraphicsQuality } from '@/constants'
 import type { TimeFormat } from '@/store/settingsSlice'
 
 // Core
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 // Redux
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { updateSetting } from '@/store/settingsSlice'
+
+// Utility
+import { requestShortcutPermissions } from '@/browser/topSites'
 
 // Misc
 import { FACE_RESOLUTION_BY_QUALITY } from '@/constants'
@@ -40,6 +44,17 @@ export function SettingsPanel() {
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
   const settings = useAppSelector((state) => state.settings)
+  const [notice, setNotice] = useState<string | null>(null)
+
+  /** Shortcuts read browsing data, so the permission is asked for here, inside the click, and only on enable. */
+  async function toggleShortcuts(enabled: boolean): Promise<void> {
+    setNotice(null)
+    if (enabled && !(await requestShortcutPermissions())) {
+      setNotice(t('settings.shortcutsDenied'))
+      return
+    }
+    dispatch(updateSetting({ key: 'showShortcuts', value: enabled }))
+  }
 
   return <div className='panel fade-in mb-3 w-80 p-4'>
     <h2 className='compact text-lg'>{
@@ -97,5 +112,20 @@ export function SettingsPanel() {
       checked={settings.showFps}
       onChange={(value) => dispatch(updateSetting({ key: 'showFps', value }))}
     />
+    <ToggleRow
+      label={t('settings.showSearch')}
+      checked={settings.showSearch}
+      onChange={(value) => dispatch(updateSetting({ key: 'showSearch', value }))}
+    />
+    <ToggleRow
+      label={t('settings.showShortcuts')}
+      checked={settings.showShortcuts}
+      onChange={(value) => void toggleShortcuts(value)}
+    />
+    {notice
+      ? <p className='text-xs text-accent'>{
+        notice
+      }</p>
+      : null}
   </div>
 }

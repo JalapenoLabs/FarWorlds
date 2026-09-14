@@ -1,7 +1,7 @@
 # Architecture
 
-Farworlds is a Manifest V3 new-tab extension: one page, no permissions, no network. Everything a tab shows is
-generated on the machine from a coordinate.
+Farworlds is a Manifest V3 new-tab extension: one page, no network. Everything a tab shows is generated on
+the machine from a coordinate. The only browser data it touches is behind two opt-in widgets (below).
 
 ## Stack
 
@@ -73,6 +73,22 @@ that alters existing worlds, add an era rather than editing a table, so old coor
 
 Terrain shape follows Sebastian Lague's Procedural Planets (MIT): simple and ridged noise filters, first
 layer as mask, cube-to-sphere projection.
+
+## Browser widgets and permissions
+
+Two optional widgets sit under the clock, both off by default (`settings.showSearch`, `settings.showShortcuts`).
+
+| Widget | API | Permission | Install warning |
+| --- | --- | --- | --- |
+| Search bar | `chrome.search.query`, the browser's default engine | `search`, declared in the manifest | none |
+| Most visited shortcuts | `chrome.topSites.get` plus Chrome's `/_favicon/` cache | `topSites`, `favicon`, declared as `optional_permissions` | asked only when the user turns the widget on |
+
+The shortcuts permission request runs inside the settings checkbox click (a user gesture, as Chrome requires).
+If the user declines, the setting stays off and the panel says why. Outside an extension page (the static
+preview used for screenshots) the search bar falls back to a Google URL and shortcuts stay empty.
+
+History and bookmarks were considered and rejected: their permissions carry heavier warnings and the page is
+for the world, not a dashboard.
 
 ## Persistence
 

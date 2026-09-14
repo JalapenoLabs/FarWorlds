@@ -5,8 +5,9 @@ import { defineManifest } from '@crxjs/vite-plugin'
 import packageJson from './package.json' with { type: 'json' }
 
 /**
- * Manifest V3. No permissions: everything is generated locally and persisted in the page's own storage.
- * The new tab override is the product; the toolbar action only reopens it.
+ * Manifest V3. Worlds are generated locally and persisted in the page's own storage. `search` lets the optional
+ * search bar use the browser's default engine and carries no install warning. Shortcuts need `topSites` and
+ * `favicon`, which do warn, so they are requested only when the user turns that widget on.
  */
 export const manifest = defineManifest({
   manifest_version: 3,
@@ -15,6 +16,8 @@ export const manifest = defineManifest({
   version: packageJson.version,
   description: 'A new world on every new tab. Explore procedurally generated planets, stars and asteroids.',
   offline_enabled: true,
+  permissions: ['search'],
+  optional_permissions: ['topSites', 'favicon'],
   icons: {
     128: 'icons/icon-128.png',
     256: 'icons/icon-256.png',

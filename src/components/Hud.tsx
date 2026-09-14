@@ -10,6 +10,8 @@ import { togglePanel } from '@/store/worldSlice'
 
 // User interface
 import { FiSearch } from 'react-icons/fi'
+import { SearchBar } from './SearchBar'
+import { Shortcuts } from './Shortcuts'
 import { WorldInfoPanel } from './panels/WorldInfoPanel'
 
 // Utility
@@ -26,6 +28,8 @@ export function Hud(props: Props) {
   const now = useClock()
   const timeFormat = useAppSelector((state) => state.settings.timeFormat)
   const showFps = useAppSelector((state) => state.settings.showFps)
+  const showSearch = useAppSelector((state) => state.settings.showSearch)
+  const showShortcuts = useAppSelector((state) => state.settings.showShortcuts)
   const blueprint = useAppSelector((state) => state.world.blueprint)
   const status = useAppSelector((state) => state.world.status)
   const activePanel = useAppSelector((state) => state.world.activePanel)
@@ -83,6 +87,12 @@ export function Hud(props: Props) {
           }</span>
         </p>
         {worldLine}
+        {showSearch
+          ? <SearchBar />
+          : null}
+        {showShortcuts
+          ? <Shortcuts />
+          : null}
         {showFps
           ? <p className='mt-4 text-sm opacity-50 tabular-nums'>{
             `${props.frameRate} fps`

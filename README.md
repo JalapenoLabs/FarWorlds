@@ -5,7 +5,8 @@ planet, star, gas giant or asteroid rendered in 3D, with the time, the date and 
 Every world comes from a coordinate you can copy and share; the same coordinate always shows the same world.
 
 Drag to orbit, scroll to zoom. Shuffle for a random world, travel to exact coordinates, keep a logbook of where
-you have been and the worlds you want to see again.
+you have been and the worlds you want to see again. Optional widgets add a search bar (your browser's default
+engine) and a row of most visited sites; both are off until you turn them on in settings.
 
 ## Install (development)
 

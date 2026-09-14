@@ -34,7 +34,17 @@
     },
     "autoRotate": "Auto-rotate",
     "showClouds": "Clouds",
-    "showFps": "Show frame rate"
+    "showFps": "Show frame rate",
+    "showSearch": "Search bar",
+    "showShortcuts": "Most visited shortcuts",
+    "shortcutsDenied": "Shortcuts need permission to read your most visited sites."
+  },
+  "search": {
+    "placeholder": "Search the web",
+    "submit": "Search"
+  },
+  "shortcuts": {
+    "empty": "No visited sites yet"
   },
   "travel": {
     "title": "Travel",

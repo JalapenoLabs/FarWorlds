@@ -15,6 +15,8 @@ export type SettingsState = {
   autoRotate: boolean
   showClouds: boolean
   showFps: boolean
+  showSearch: boolean
+  showShortcuts: boolean
 }
 
 export const initialSettings: SettingsState = {
@@ -24,6 +26,8 @@ export const initialSettings: SettingsState = {
   autoRotate: true,
   showClouds: true,
   showFps: false,
+  showSearch: false,
+  showShortcuts: false,
 }
 
 export const settingsSlice = createSlice({

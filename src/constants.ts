@@ -16,6 +16,15 @@ export const PERSIST_DEBOUNCE_MS = 250
 /** Planet body radius in scene units; everything else (camera, rings, moons) is relative to it. */
 export const PLANET_RADIUS = 5
 
+/** How many most-visited sites the shortcuts row shows. */
+export const SHORTCUT_LIMIT = 8
+
+/** Favicon size requested from Chrome's favicon cache, in CSS pixels. */
+export const SHORTCUT_ICON_SIZE = 32
+
+/** Permissions the shortcuts widget needs; requested when the widget is turned on. */
+export const SHORTCUT_PERMISSIONS = ['topSites', 'favicon'] as const
+
 /** Thumbnail edge length in pixels for booklet previews. */
 export const THUMBNAIL_SIZE = 96
 
