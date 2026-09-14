@@ -8,3 +8,6 @@ dist/
 # The archived original extension is closed source. It stays local as a behavioural reference and is never
 # committed or redistributed.
 archive/
+
+# Store zips are built per release and attached to GitHub releases, never committed.
+release/

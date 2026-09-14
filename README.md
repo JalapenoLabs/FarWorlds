@@ -35,6 +35,7 @@ Reload the extension card after each build and open a fresh tab.
 - `docs/architecture.md`: stack, layout, determinism model, generation pipeline, persistence.
 - `docs/original-extension.md`: the behaviour Farworlds reproduces, and the licensing rule for `archive/`.
 - `docs/code-map.md` and `docs/research.md`: reference material about the original extension.
+- `store/`: Chrome Web Store listing copy, privacy policy, screenshots and promo tile.
 
 ## Authors and license
 
