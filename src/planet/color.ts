@@ -1,4 +1,4 @@
-// Copyright © 2026 Alex Navarro
+// Copyright © 2026 JalapenoLabs
 
 /** HSL (hue 0..360, saturation and lightness 0..1) to a packed 0xRRGGBB number, for palettes built from random hues. */
 export function hslToHex(hue: number, saturation: number, lightness: number): number {

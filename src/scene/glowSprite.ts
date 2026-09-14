@@ -1,4 +1,4 @@
-// Copyright © 2026 Alex Navarro
+// Copyright © 2026 JalapenoLabs
 
 // Core
 import { AdditiveBlending, CanvasTexture, Sprite, SpriteMaterial } from 'three'

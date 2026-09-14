@@ -1,4 +1,4 @@
-// Copyright © 2026 Alex Navarro
+// Copyright © 2026 JalapenoLabs
 
 import { defineManifest } from '@crxjs/vite-plugin'
 
@@ -15,6 +15,8 @@ export const manifest = defineManifest({
   short_name: 'Farworlds',
   version: packageJson.version,
   description: 'A new world on every new tab. Explore procedurally generated planets, stars and asteroids.',
+  author: { email: 'alex@jalapenolabs.io' },
+  homepage_url: 'https://github.com/JalapenoLabs/FarWorlds',
   offline_enabled: true,
   permissions: ['search'],
   optional_permissions: ['topSites', 'favicon'],

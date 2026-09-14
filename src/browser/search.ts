@@ -1,4 +1,4 @@
-// Copyright © 2026 Alex Navarro
+// Copyright © 2026 JalapenoLabs
 
 /**
  * Runs a query through the browser's default search engine. Outside an extension page (the static preview

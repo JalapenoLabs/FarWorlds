@@ -1,4 +1,4 @@
-// Copyright © 2026 Alex Navarro
+// Copyright © 2026 JalapenoLabs
 
 /**
  * The service worker only exists so the toolbar icon has somewhere to go. The new tab override is the

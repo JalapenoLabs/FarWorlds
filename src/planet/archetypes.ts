@@ -1,4 +1,4 @@
-// Copyright © 2026 Alex Navarro
+// Copyright © 2026 JalapenoLabs
 
 import type { Era } from './coordinates'
 import type { Rng } from './rng'

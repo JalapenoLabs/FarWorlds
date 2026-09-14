@@ -1,4 +1,4 @@
-// Copyright © 2026 Alex Navarro
+// Copyright © 2026 JalapenoLabs
 
 import type { PlayerDataState } from './playerDataSlice'
 import type { SettingsState } from './settingsSlice'

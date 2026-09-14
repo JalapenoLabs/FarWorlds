@@ -1,4 +1,4 @@
-// Copyright © 2026 Alex Navarro
+// Copyright © 2026 JalapenoLabs
 
 import type { MoonSettings, PlanetBlueprint } from '@/planet/types'
 import type { Material, ShaderMaterial } from 'three'

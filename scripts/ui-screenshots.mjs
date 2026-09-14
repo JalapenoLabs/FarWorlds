@@ -1,4 +1,4 @@
-// Copyright © 2026 Alex Navarro
+// Copyright © 2026 JalapenoLabs
 
 /**
  * Visual check for the built new tab page. Serves nothing itself: start a static server on dist/ and a headless

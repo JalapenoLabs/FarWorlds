@@ -1,4 +1,8 @@
-// Copyright © 2026 Alex Navarro
+// Copyright © 2026 JalapenoLabs
+
+export const EXTERNAL_LINKS = {
+  repository: 'https://github.com/JalapenoLabs/FarWorlds',
+} as const
 
 /** Coordinates are clamped to this range on every axis, matching the shareable coordinate space. */
 export const COORDINATE_LIMIT = 9999.99

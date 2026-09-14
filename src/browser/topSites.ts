@@ -1,4 +1,4 @@
-// Copyright © 2026 Alex Navarro
+// Copyright © 2026 JalapenoLabs
 
 // Misc
 import { SHORTCUT_ICON_SIZE, SHORTCUT_LIMIT, SHORTCUT_PERMISSIONS } from '@/constants'

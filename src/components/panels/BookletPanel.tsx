@@ -1,4 +1,4 @@
-// Copyright © 2026 Alex Navarro
+// Copyright © 2026 JalapenoLabs
 
 import type { Coordinates } from '@/planet/coordinates'
 import type { WorldRecord } from '@/store/playerDataSlice'

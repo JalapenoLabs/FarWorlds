@@ -3,6 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "description": "A new world on every new tab. Procedurally generated planets, stars and asteroids in your browser.",
+  "author": "Alex Navarro <alex@jalapenolabs.io> (https://jalapenolabs.io)",
+  "license": "MIT",
+  "homepage": "https://github.com/JalapenoLabs/FarWorlds",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JalapenoLabs/FarWorlds.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JalapenoLabs/FarWorlds/issues"
+  },
   "type": "module",
   "packageManager": "yarn@4.17.0",
   "engines": {

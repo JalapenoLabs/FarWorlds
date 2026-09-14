@@ -1,4 +1,4 @@
-// Copyright © 2026 Alex Navarro
+// Copyright © 2026 JalapenoLabs
 
 import type { PlanetBlueprint } from '@/planet/types'
 import type { PayloadAction } from '@reduxjs/toolkit'
