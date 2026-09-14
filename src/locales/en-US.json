@@ -1,0 +1,78 @@
+{
+  "app": {
+    "name": "Farworlds",
+    "tagline": "A new world on every new tab"
+  },
+  "hud": {
+    "loading": "Charting a new world…",
+    "error": "This world refused to form. Try shuffling.",
+    "openInfo": "World details"
+  },
+  "controls": {
+    "settings": "Settings",
+    "travel": "Travel to coordinates",
+    "shuffle": "Shuffle to a random world",
+    "booklet": "Logbook",
+    "share": "Copy coordinates",
+    "copied": "Coordinates copied",
+    "repository": "Source code",
+    "close": "Close",
+    "back": "Back"
+  },
+  "settings": {
+    "title": "Settings",
+    "graphicsQuality": "Graphics quality",
+    "quality": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "useNativeResolution": "Native resolution",
+    "timeFormat": "Time format",
+    "time": {
+      "12h": "12 hours",
+      "24h": "24 hours"
+    },
+    "autoRotate": "Auto-rotate",
+    "showClouds": "Clouds",
+    "showFps": "Show frame rate"
+  },
+  "travel": {
+    "title": "Travel",
+    "era": "Era",
+    "eras": {
+      "0": "First era",
+      "1": "Second era"
+    },
+    "alpha": "Alpha",
+    "beta": "Beta",
+    "gamma": "Gamma",
+    "paste": "Paste coordinates",
+    "go": "Go"
+  },
+  "booklet": {
+    "history": "Travel history",
+    "saved": "Saved worlds",
+    "empty": "Nothing here yet. Go explore!",
+    "save": "Save this world",
+    "forget": "Remove from saved worlds",
+    "full": "Your logbook is full. Remove a saved world to make room."
+  },
+  "info": {
+    "type": "Type",
+    "coordinates": "Coordinates",
+    "habitability": "Habitability",
+    "temperature": "Surface temperature",
+    "percent": "{{value}} %",
+    "temperatureValue": "{{fahrenheit}} °F ({{celsius}} °C)"
+  },
+  "planetType": {
+    "ocean": "Ocean World",
+    "oceanRidge": "Ridge World",
+    "oceanIsland": "Island World",
+    "star": "Star",
+    "gasGiant": "Gas Giant",
+    "bare": "Bare World",
+    "asteroid": "Asteroid"
+  }
+}

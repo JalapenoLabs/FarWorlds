@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.yarn/cache/
+.yarn/install-state.gz
+.vite/
+*.log
+
+# The archived original extension is closed source. It stays local as a behavioural reference and is never
+# committed or redistributed.
+archive/
