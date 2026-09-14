@@ -15,7 +15,7 @@ import { createGlowSprite } from './glowSprite'
 import { createRingMesh } from './ringMesh'
 
 // Misc
-import { MOON_FACE_RESOLUTION, PLANET_RADIUS } from '@/constants'
+import { FRAMING_DISTANCE_RADII, MOON_FACE_RESOLUTION, PLANET_RADIUS } from '@/constants'
 import { PlanetType } from '@/planet/types'
 
 export type MoonOrbit = {
@@ -33,6 +33,8 @@ export type World = {
   rotationSpeed: number
   /** How far the camera should sit to frame the whole system. */
   framingDistance: number
+  /** Radius of the body plus its ring, used to crop thumbnails. */
+  extent: number
   dispose(): void
 }
 
@@ -99,12 +101,14 @@ export async function createWorld(blueprint: PlanetBlueprint, resolution: number
     group.add(new PointLight(blueprint.palette.accent, 40, 0, 1.2))
   }
 
-  let framingDistance = PLANET_RADIUS * 3.6
+  let framingDistance = PLANET_RADIUS * FRAMING_DISTANCE_RADII
+  let extent = PLANET_RADIUS * 1.25
   if (blueprint.ring) {
     const ring = createRingMesh(blueprint.ring, `${blueprint.seed}:ring`)
     disposables.push(ring.geometry, ring.material as Material)
     group.add(ring)
-    framingDistance = blueprint.ring.outerRadius * 2.1
+    framingDistance = Math.max(framingDistance, blueprint.ring.outerRadius * 3.2)
+    extent = blueprint.ring.outerRadius
   }
 
   const moons: MoonOrbit[] = []
@@ -119,7 +123,7 @@ export async function createWorld(blueprint: PlanetBlueprint, resolution: number
     orbit.add(moon)
     group.add(orbit)
     moons.push({ object: orbit, settings })
-    framingDistance = Math.max(framingDistance, settings.orbitRadius * 1.9)
+    framingDistance = Math.max(framingDistance, settings.orbitRadius * 2.2)
   })
 
   return {
@@ -130,6 +134,7 @@ export async function createWorld(blueprint: PlanetBlueprint, resolution: number
     moons,
     rotationSpeed: blueprint.rotationSpeed,
     framingDistance,
+    extent,
     dispose() {
       disposables.forEach((item) => item.dispose())
     },

@@ -21,7 +21,7 @@ import { createStarfield } from './starfield'
 import { animateWorld, createWorld } from './worldGroup'
 
 // Misc
-import { PLANET_RADIUS, THUMBNAIL_SIZE } from '@/constants'
+import { FRAMING_DISTANCE_RADII, PLANET_RADIUS, THUMBNAIL_SIZE } from '@/constants'
 
 /** Fraction of the viewport width the world is pushed left of centre, leaving room for the HUD on the right. */
 const WORLD_HORIZONTAL_OFFSET = 0.16
@@ -76,14 +76,14 @@ export class SpaceScene {
     this.renderer.setClearColor(0x000000, 0)
 
     this.camera = new PerspectiveCamera(45, 1, 0.1, 2000)
-    this.camera.position.set(0, PLANET_RADIUS * 0.6, PLANET_RADIUS * 3.6)
+    this.camera.position.set(0, PLANET_RADIUS * 1.1, PLANET_RADIUS * FRAMING_DISTANCE_RADII)
 
     this.controls = new OrbitControls(this.camera, canvas)
     this.controls.enableDamping = true
     this.controls.dampingFactor = 0.06
     this.controls.enablePan = false
     this.controls.minDistance = PLANET_RADIUS * 1.7
-    this.controls.maxDistance = PLANET_RADIUS * 12
+    this.controls.maxDistance = PLANET_RADIUS * 20
     this.controls.rotateSpeed = 0.6
 
     this.sun = new DirectionalLight(0xffffff, 2.4)
@@ -146,7 +146,7 @@ export class SpaceScene {
     this.worldShownAt = now
     this.transitions.push({ world, startedAt: now, from: 0.001, to: 1, duration: ARRIVAL_DURATION_SECONDS })
 
-    this.controls.maxDistance = Math.max(PLANET_RADIUS * 12, world.framingDistance * 2)
+    this.controls.maxDistance = Math.max(PLANET_RADIUS * 20, world.framingDistance * 2)
     this.flyTo(world.framingDistance)
   }
 
@@ -174,7 +174,7 @@ export class SpaceScene {
     this.renderer.render(this.scene, this.camera)
     const source = this.renderer.domElement
     const centre = new Vector3(0, 0, 0).project(this.camera)
-    const edge = new Vector3(this.world.framingDistance * 0.36, 0, 0).project(this.camera)
+    const edge = new Vector3(this.world.extent, 0, 0).project(this.camera)
     const pixelRatio = this.renderer.getPixelRatio()
     const centreX = ((centre.x + 1) / 2) * source.clientWidth * pixelRatio
     const centreY = ((1 - centre.y) / 2) * source.clientHeight * pixelRatio

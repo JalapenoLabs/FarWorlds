@@ -25,6 +25,9 @@ export const SHORTCUT_ICON_SIZE = 32
 /** Permissions the shortcuts widget needs; requested when the widget is turned on. */
 export const SHORTCUT_PERMISSIONS = ['topSites', 'favicon'] as const
 
+/** Camera distance for a bare body, in planet radii. Rings and moons push it further. */
+export const FRAMING_DISTANCE_RADII = 7
+
 /** Thumbnail edge length in pixels for booklet previews. */
 export const THUMBNAIL_SIZE = 96
 
