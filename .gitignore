@@ -11,3 +11,6 @@ archive/
 
 # Store zips are built per release and attached to GitHub releases, never committed.
 release/
+
+# Raw captures stay local; only the processed store images are committed.
+store/screenshots/Alex.png

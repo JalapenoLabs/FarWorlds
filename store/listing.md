@@ -39,9 +39,11 @@ Open source under the MIT license: https://github.com/JalapenoLabs/FarWorlds
 
 **Icon**: `public/icons/icon-128.png`
 
-**Screenshots** (1280x800): `store/screenshots/1-ocean-world.png` through `5-star.png`
+**Screenshots** (1280x800): `store/screenshots/1-ringed-world.png` through `5-star.png`
 
 **Small promo tile** (440x280): `store/promo-tile-440x280.png`
+
+**Marquee promo tile** (1400x560): `store/promo-marquee-1400x560.png`
 
 **Homepage URL**: https://github.com/JalapenoLabs/FarWorlds
 
