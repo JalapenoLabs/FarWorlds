@@ -36,6 +36,13 @@ Reload the extension card after each build and open a fresh tab.
 - `docs/original-extension.md`: the behaviour Farworlds reproduces, and the licensing rule for `archive/`.
 - `docs/code-map.md` and `docs/research.md`: reference material about the original extension.
 
+## Authors and license
+
+Made by [JalapenoLabs](https://jalapenolabs.io) and Alex Navarro (alex@jalapenolabs.io). MIT licensed; see
+`LICENSE`. Issues and pull requests: https://github.com/JalapenoLabs/FarWorlds.
+
+Farworlds is a clean-room reimagining of the Tabiverse idea and shares no code with it.
+
 ## Credits
 
 Terrain generation follows Sebastian Lague's Procedural Planets series (MIT). GLSL simplex noise by Ian McEwan,
