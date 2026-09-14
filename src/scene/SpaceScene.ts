@@ -6,11 +6,11 @@ import type { World } from './worldGroup'
 // Core
 import {
   AmbientLight,
-  Clock,
   DirectionalLight,
   HemisphereLight,
   PerspectiveCamera,
   Scene,
+  Timer,
   Vector3,
   WebGLRenderer,
 } from 'three'
@@ -31,6 +31,7 @@ const DEPARTURE_DURATION_SECONDS = 0.45
 
 export type SceneOptions = {
   autoRotate: boolean
+  showClouds: boolean
   pixelRatio: number
 }
 
@@ -56,7 +57,7 @@ export class SpaceScene {
   private readonly scene = new Scene()
   private readonly camera: PerspectiveCamera
   private readonly controls: OrbitControls
-  private readonly clock = new Clock()
+  private readonly timer = new Timer()
   private readonly sun: DirectionalLight
   private options: SceneOptions
   private world: World | null = null
@@ -103,6 +104,9 @@ export class SpaceScene {
       this.renderer.setPixelRatio(options.pixelRatio)
       this.resize()
     }
+    if (this.world?.clouds) {
+      this.world.clouds.visible = this.options.showClouds
+    }
   }
 
   /**
@@ -117,7 +121,7 @@ export class SpaceScene {
       return
     }
 
-    const now = this.clock.getElapsedTime()
+    const now = this.timer.getElapsed()
     const previous = this.world
     if (previous) {
       this.transitions.push({
@@ -134,6 +138,9 @@ export class SpaceScene {
     }
 
     world.group.scale.setScalar(0.001)
+    if (world.clouds) {
+      world.clouds.visible = this.options.showClouds
+    }
     this.scene.add(world.group)
     this.world = world
     this.worldShownAt = now
@@ -156,10 +163,11 @@ export class SpaceScene {
   }
 
   /**
-   * Captures the current world as a small square image for the logbook. Must run right after a render, so it
-   * renders synchronously itself and reads the drawing buffer before the browser can clear it.
+   * Captures the current world as a small square image for the logbook, tagged with the seed it shows so a
+   * caller that asked for an earlier world can discard it. Renders synchronously and reads the drawing buffer
+   * before the browser can clear it.
    */
-  captureThumbnail(): string | null {
+  captureThumbnail(): { seed: string, dataUrl: string } | null {
     if (!this.world) {
       return null
     }
@@ -193,7 +201,7 @@ export class SpaceScene {
       THUMBNAIL_SIZE,
       THUMBNAIL_SIZE,
     )
-    return canvas.toDataURL('image/jpeg', 0.7)
+    return { seed: this.world.seed, dataUrl: canvas.toDataURL('image/jpeg', 0.7) }
   }
 
   dispose(): void {
@@ -224,8 +232,9 @@ export class SpaceScene {
     }
     this.frameHandle = requestAnimationFrame(this.renderFrame)
 
-    const delta = Math.min(this.clock.getDelta(), 0.1)
-    const now = this.clock.getElapsedTime()
+    this.timer.update()
+    const delta = Math.min(this.timer.getDelta(), 0.1)
+    const now = this.timer.getElapsed()
 
     this.transitions = this.transitions.filter((transition) => {
       const ratio = Math.min(1, (now - transition.startedAt) / transition.duration)

@@ -170,7 +170,7 @@ localStorage via redux-persist, key `root`: `settings` (above) and `playerData`
 | thumbnails.tabiverse.com | booklet thumbnails | render locally |
 | Amplitude | usage analytics | remove |
 | forms.gle uninstall survey | feedback | remove |
-| Twitter / Discord links | community | keep Discord (still live), drop Twitter |
+| Twitter / Discord links | community | dropped; no social buttons in the rebuild |
 
 ## Roadmap the original author announced but never shipped
 

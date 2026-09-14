@@ -29,7 +29,3 @@ export type GraphicsQuality = keyof typeof FACE_RESOLUTION_BY_QUALITY
 
 /** Moons are small; they never need the primary body's resolution. */
 export const MOON_FACE_RESOLUTION = 24
-
-export const EXTERNAL_LINKS = {
-  repository: 'https://github.com/navarrotech/farworlds',
-} as const

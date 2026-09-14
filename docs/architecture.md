@@ -86,6 +86,11 @@ The share button copies `x, y, z, era` as text; the travel panel accepts that te
 share page. The page also reads `?x=&y=&z=&w=` so a link to the extension page itself works between profiles
 that have the extension installed.
 
+## Packaging
+
+`yarn build` writes `dist/` without source maps; that folder is what gets loaded unpacked and what gets zipped
+for the store. Run `vite build --sourcemap` for a profiling build.
+
 ## Verification
 
 - `yarn typecheck`, `yarn lint`, `yarn test` must pass before a commit.

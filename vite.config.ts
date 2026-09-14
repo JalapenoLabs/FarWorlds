@@ -23,9 +23,9 @@ export default defineConfig({
     },
   },
   build: {
-    // Extension pages ship as a single bundle per entry; a source map helps profiling the planet pipeline
-    // without leaking anything, since the whole project is open.
-    sourcemap: true,
+    // dist/ is what gets zipped for the store, so it carries no source maps; profile with `vite build
+    // --sourcemap` when needed.
+    sourcemap: false,
     target: 'es2022',
   },
   test: {

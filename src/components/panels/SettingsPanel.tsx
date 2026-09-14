@@ -88,6 +88,11 @@ export function SettingsPanel() {
       onChange={(value) => dispatch(updateSetting({ key: 'autoRotate', value }))}
     />
     <ToggleRow
+      label={t('settings.showClouds')}
+      checked={settings.showClouds}
+      onChange={(value) => dispatch(updateSetting({ key: 'showClouds', value }))}
+    />
+    <ToggleRow
       label={t('settings.showFps')}
       checked={settings.showFps}
       onChange={(value) => dispatch(updateSetting({ key: 'showFps', value }))}

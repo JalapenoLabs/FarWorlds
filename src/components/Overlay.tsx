@@ -11,7 +11,7 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { togglePanel } from '@/store/worldSlice'
 
 // User interface
-import { FiBookOpen, FiGithub, FiNavigation, FiSend, FiSettings, FiShuffle } from 'react-icons/fi'
+import { FiBookOpen, FiNavigation, FiSend, FiSettings, FiShuffle } from 'react-icons/fi'
 import { IconButton } from './IconButton'
 import { BookletPanel } from './panels/BookletPanel'
 import { SettingsPanel } from './panels/SettingsPanel'
@@ -20,8 +20,6 @@ import { TravelPanel } from './panels/TravelPanel'
 // Utility
 import { formatCoordinates, randomCoordinates } from '@/planet/coordinates'
 
-// Misc
-import { EXTERNAL_LINKS } from '@/constants'
 
 type Props = {
   travelTo: (coordinates: Coordinates) => Promise<void>
@@ -114,17 +112,5 @@ export function Overlay(props: Props) {
       </div>
     </div>
 
-    <div className='fixed bottom-4 right-4'>
-      <a
-        className='icon-button'
-        href={EXTERNAL_LINKS.repository}
-        target='_blank'
-        rel='noreferrer'
-        title={t('controls.repository')}
-        aria-label={t('controls.repository')}
-      >
-        <FiGithub className='h-5 w-5' />
-      </a>
-    </div>
   </>
 }

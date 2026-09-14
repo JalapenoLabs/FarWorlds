@@ -27,6 +27,7 @@ export function useSpaceScene(canvasId: string) {
   const graphicsQuality = useAppSelector((state) => state.settings.graphicsQuality)
   const useNativeResolution = useAppSelector((state) => state.settings.useNativeResolution)
   const autoRotate = useAppSelector((state) => state.settings.autoRotate)
+  const showClouds = useAppSelector((state) => state.settings.showClouds)
   const showFps = useAppSelector((state) => state.settings.showFps)
 
   const sceneRef = useRef<SpaceScene | null>(null)
@@ -74,11 +75,12 @@ export function useSpaceScene(canvasId: string) {
       timestamp: Date.now(),
     }))
 
-    // The arrival animation needs a moment before the world is worth photographing.
+    // The arrival animation needs a moment before the world is worth photographing. If the user has already
+    // moved on by then, the capture shows a different world and is dropped.
     window.setTimeout(() => {
-      const thumbnail = sceneRef.current?.captureThumbnail()
-      if (thumbnail) {
-        dispatch(attachThumbnail({ seed: blueprint.seed, thumbnail }))
+      const capture = sceneRef.current?.captureThumbnail()
+      if (capture?.seed === blueprint.seed) {
+        dispatch(attachThumbnail({ seed: blueprint.seed, thumbnail: capture.dataUrl }))
       }
     }, 1200)
   }, [dispatch])
@@ -91,6 +93,7 @@ export function useSpaceScene(canvasId: string) {
 
     const scene = new SpaceScene(canvas, {
       autoRotate,
+      showClouds,
       pixelRatio: useNativeResolution
         ? window.devicePixelRatio
         : Math.min(window.devicePixelRatio, 1),
@@ -111,11 +114,12 @@ export function useSpaceScene(canvasId: string) {
   useEffect(() => {
     sceneRef.current?.updateOptions({
       autoRotate,
+      showClouds,
       pixelRatio: useNativeResolution
         ? window.devicePixelRatio
         : Math.min(window.devicePixelRatio, 1),
     })
-  }, [autoRotate, useNativeResolution])
+  }, [autoRotate, showClouds, useNativeResolution])
 
   useEffect(() => {
     const scene = sceneRef.current
